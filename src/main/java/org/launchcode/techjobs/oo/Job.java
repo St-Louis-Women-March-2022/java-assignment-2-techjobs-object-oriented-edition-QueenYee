@@ -20,9 +20,93 @@ public class Job {
         this();
         this.value = value;
     }
+
+    public Job() {
+        id = nextId;
+        nextId++;
+    }
+    public Job(String name, Employer employer, Location location, PositionType positiontype, CoreCompetency coreCompetency) {
+        this();
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positiontype;
+        this.coreCompetency = coreCompetency;
+    }
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        if (this.getName() == null && this.getEmployer() == null && this.getLocation() == null && this.getPositionType() == null && this.getCoreCompetency() == null) {
+            return "No such job available.";
+        }
+        return "\n" +
+                "ID: " + id + "\n" +
+                "Name: " + ((this.getName() == null) ? "Data not available" : this.getName()) + "\n" +
+                "Employer: " + ((this.getEmployer().getValue() == "") ? "Data not available" : this.getEmployer().getValue()) + "\n" +
+                "Location: " + ((this.getLocation().getValue() == "") ? "Data not available" : this.getLocation().getValue()) + "\n" +
+                "Position Type: " + ((this.getPositionType().getValue() == "") ? "Data not available" : this.getPositionType().getValue()) + "\n" +
+                "Core Competency: " + ((this.getCoreCompetency().getValue() == "") ? "Data not available" : this.getCoreCompetency().getValue()) + "\n";
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Employer getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public PositionType getPositionType() {
+        return positionType;
+    }
+
+    public void setPositionType(PositionType positionType) {
+        this.positionType = positionType;
+    }
+
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
+    }
+
+    public void setCoreCompetency(CoreCompetency coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
+
+    public int getId() {
+        return id;
+    }
+
 }
