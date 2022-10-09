@@ -16,10 +16,7 @@ public class Job {
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
-    public Job(String value) {
-        this();
-        this.value = value;
-    }
+
 
     public Job() {
         id = nextId;
@@ -52,7 +49,7 @@ public class Job {
     @Override
     public String toString() {
         if (this.getName() == null && this.getEmployer() == null && this.getLocation() == null && this.getPositionType() == null && this.getCoreCompetency() == null) {
-            return "No such job available.";
+            return "No such job.";
         }
         return "\n" +
                 "ID: " + id + "\n" +

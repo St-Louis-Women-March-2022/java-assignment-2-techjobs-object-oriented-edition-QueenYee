@@ -13,7 +13,7 @@ public class PositionType {
         nextId++;
     }
 
-    @Override
+
     public PositionType(String value) {
         this();
         this.value = value;
