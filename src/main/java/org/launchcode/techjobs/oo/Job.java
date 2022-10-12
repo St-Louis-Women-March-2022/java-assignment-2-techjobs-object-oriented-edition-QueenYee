@@ -48,16 +48,30 @@ public class Job {
 
     @Override
     public String toString() {
-        if (this.getName() == null && this.getEmployer() == null && this.getLocation() == null && this.getPositionType() == null && this.getCoreCompetency() == null) {
-            return "No such job.";
+        String jobless = "OOPS";
+        if (name == null || name == "" && employer == null || employer.getValue() == "" && location == null || location.getValue() ==""
+                && positionType == null || positionType.getValue() ==""  && coreCompetency == null || coreCompetency.getValue() == "") {
+            return jobless;
         }
+        if (name == null || name == "") {
+            name = "Data not available";
+        }
+        if (employer == null || employer.getValue() == "") {
+            employer.setValue("Data not available");
+        }
+        if(location == null || location.getValue() ==""){
+            location.setValue("Data not available");
+        }
+        if (positionType == null || positionType.getValue() ==""){
+            positionType.setValue("Data not available");
+        }
+        if(coreCompetency == null || coreCompetency.getValue() == ""){
+            coreCompetency.setValue("Data not available");
+        }
+
         return "\n" +
-                "ID: " + id + "\n" +
-                "Name: " + ((this.getName() == null) ? "Data not available" : this.getName()) + "\n" +
-                "Employer: " + ((this.getEmployer().getValue() == "") ? "Data not available" : this.getEmployer().getValue()) + "\n" +
-                "Location: " + ((this.getLocation().getValue() == "") ? "Data not available" : this.getLocation().getValue()) + "\n" +
-                "Position Type: " + ((this.getPositionType().getValue() == "") ? "Data not available" : this.getPositionType().getValue()) + "\n" +
-                "Core Competency: " + ((this.getCoreCompetency().getValue() == "") ? "Data not available" : this.getCoreCompetency().getValue()) + "\n";
+                "ID: " + id + "\nName: " + name + "\nEmployer: " + employer.getValue() + "\nLocation: " + location.getValue() +"\nPosition Type: " + positionType.getValue() +"\nCore Competency: " + coreCompetency.getValue() +"\n";
+
     }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
