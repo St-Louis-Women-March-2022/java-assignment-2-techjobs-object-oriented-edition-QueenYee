@@ -72,14 +72,14 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job testJob5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String theResponse = "\n" + "ID: " + testJob5.getId() + "\n" +
-                "Name: " + testJob5.getName() + "\n" +
-                "Employer: " + testJob5.getEmployer() + "\n" +
-                "Location: " + testJob5.getLocation() + "\n" +
-                "Position Type: " + testJob5.getPositionType() + "\n" +
-                "Core Competency: " + testJob5.getCoreCompetency() + "\n";
-        assertEquals(testJob5.toString(), theResponse);
+        Job testJob= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String theResponse = "\n" + "ID: " + testJob.getId() + "\n" +
+                "Name: " + testJob.getName() + "\n" +
+                "Employer: " + testJob.getEmployer() + "\n" +
+                "Location: " + testJob.getLocation() + "\n" +
+                "Position Type: " + testJob.getPositionType() + "\n" +
+                "Core Competency: " + testJob.getCoreCompetency() + "\n";
+        assertEquals(testJob.toString(), theResponse);
 //        Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
 //        Assert.assertEquals("\nID: " + job.getId()+ "\nName: Data not available" + "\nEmployer: Data not available" + "\nLocation: Data not available" +"\nPosition Type: Data not available" +
 //                "\nCore Competency: Data not available" + "\n",job.toString());
