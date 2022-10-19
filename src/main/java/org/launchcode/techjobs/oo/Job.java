@@ -48,11 +48,9 @@ public class Job {
 
     @Override
     public String toString() {
+
         String jobless = "OOPS";
-        if (name == null || name == "" && employer == null || employer.getValue() == "" && location == null || location.getValue() ==""
-                && positionType == null || positionType.getValue() ==""  && coreCompetency == null || coreCompetency.getValue() == "") {
-            return jobless;
-        }
+
         if (name == null || name == "") {
             name = "Data not available";
         }
@@ -67,6 +65,11 @@ public class Job {
         }
         if(coreCompetency == null || coreCompetency.getValue() == ""){
             coreCompetency.setValue("Data not available");
+        }
+
+        if (name == null || name == "" && employer == null || employer.getValue() == "" && location == null || location.getValue() ==""
+                && positionType == null || positionType.getValue() ==""  && coreCompetency == null || coreCompetency.getValue() == "") {
+            return jobless;
         }
 
         return "\n" +
