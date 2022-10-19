@@ -72,9 +72,17 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
-        Assert.assertEquals("\nID: " + job.getId()+ "\nName: Data not available" + "\nEmployer: Data not available" + "\nLocation: Data not available" +"\nPosition Type: Data not available" +
-                "\nCore Competency: Data not available" + "\n",job.toString());
+        Job testJob5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String theResponse = "\n" + "ID: " + testJob5.getId() + "\n" +
+                "Name: " + testJob5.getName() + "\n" +
+                "Employer: " + testJob5.getEmployer() + "\n" +
+                "Location: " + testJob5.getLocation() + "\n" +
+                "Position Type: " + testJob5.getPositionType() + "\n" +
+                "Core Competency: " + testJob5.getCoreCompetency() + "\n";
+        assertEquals(testJob5.toString(), theResponse);
+//        Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+//        Assert.assertEquals("\nID: " + job.getId()+ "\nName: Data not available" + "\nEmployer: Data not available" + "\nLocation: Data not available" +"\nPosition Type: Data not available" +
+//                "\nCore Competency: Data not available" + "\n",job.toString());
     }
 
     //Bonus Test
