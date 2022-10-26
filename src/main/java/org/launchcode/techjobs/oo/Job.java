@@ -22,21 +22,57 @@ public class Job {
         id = nextId;
         nextId++;
     }
-    public Job(String name, Employer employer, Location location, PositionType positiontype, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
         this.location = location;
-        this.positionType = positiontype;
+        this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+
     @Override
-    public boolean equals(Object o) {
+    public String toString() {
+
+//        String jobless = "OOPS";
+        String output = "";
+
+        if (name.equals("")){
+            name = "Data not available";
+        }
+        if (employer.getValue() == null || employer.getValue().equals("")) {
+            employer.setValue("Data not available");
+        }
+        if(location.getValue() == null || location.getValue().equals("")){
+            location.setValue("Data not available");
+        }
+        if (positionType.getValue() == null || positionType.getValue().equals("")){
+            positionType.setValue("Data not available");
+        }
+        if(coreCompetency.getValue() == null || coreCompetency.getValue().equals("")){
+            coreCompetency.setValue("Data not available");
+        }
+
+//        if (name == null || name.equals("") && employer.getValue() == null || employer.getValue().equals("") && location.getValue() == null || location.getValue().equals("")
+//                && positionType.getValue() == null || positionType.getValue().equals("")  && coreCompetency.getValue() == null || coreCompetency.getValue().equals("")){
+//            return jobless;
+//        }
+
+        output = String.format("\nID: %d\n" +
+                "Name: %s\n" +
+                "Employer: %s\n" +
+                "Location: %s\n" +
+                "Position Type: %s\n" +
+                "Core Competency: %s\n", id, name, employer, location, positionType, coreCompetency);
+        return output;
+    }
+    @Override
+    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Job)) return false;
         Job job = (Job) o;
         return id == job.id;
     }
@@ -46,39 +82,11 @@ public class Job {
         return Objects.hash(id);
     }
 
-    @Override
-    public String toString() {
-
-        String jobless = "OOPS";
-
-        if (name == null || name == "") {
-            name = "Data not available";
-        }
-        if (employer == null || employer.getValue() == "") {
-            employer.setValue("Data not available");
-        }
-        if(location == null || location.getValue() ==""){
-            location.setValue("Data not available");
-        }
-        if (positionType == null || positionType.getValue() ==""){
-            positionType.setValue("Data not available");
-        }
-        if(coreCompetency == null || coreCompetency.getValue() == ""){
-            coreCompetency.setValue("Data not available");
-        }
-
-        if (name == null || name == "" && employer == null || employer.getValue() == "" && location == null || location.getValue() ==""
-                && positionType == null || positionType.getValue() ==""  && coreCompetency == null || coreCompetency.getValue() == "") {
-            return jobless;
-        }
-
-        return "\n" +
-                "ID: " + id + "\nName: " + name + "\nEmployer: " + employer.getValue() + "\nLocation: " + location.getValue() +"\nPosition Type: " + positionType.getValue() +"\nCore Competency: " + coreCompetency.getValue() +"\n";
-
-    }
-
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+    public int getId() {
+        return id;
+    }
     public String getName() {
         return name;
     }
@@ -119,8 +127,5 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public int getId() {
-        return id;
-    }
-
 }
+

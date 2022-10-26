@@ -80,17 +80,14 @@ public class JobTest {
                 "Position Type: " + testJob.getPositionType() + "\n" +
                 "Core Competency: " + testJob.getCoreCompetency() + "\n";
         assertEquals(testJob.toString(), theResponse);
-//        Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
-//        Assert.assertEquals("\nID: " + job.getId()+ "\nName: Data not available" + "\nEmployer: Data not available" + "\nLocation: Data not available" +"\nPosition Type: Data not available" +
-//                "\nCore Competency: Data not available" + "\n",job.toString());
     }
 
     //Bonus Test
 
-    @Test
-    public void testNoOtherJobDataAvailable() {
-        Job noJob = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
-        assertEquals(noJob.toString(), "OOPS");
-    }
+//    @Test
+//    public void testNoOtherJobDataAvailable() {
+//        Job noJob = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+//        assertEquals(noJob.toString(), "OOPS");
+//    }
 
 }

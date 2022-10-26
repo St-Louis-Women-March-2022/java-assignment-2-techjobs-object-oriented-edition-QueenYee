@@ -8,7 +8,7 @@ public abstract class JobField {
     private String value;
 
     public JobField() {
-        this.id = nextId;
+        id = nextId;
         nextId++;
     }
 
@@ -26,7 +26,7 @@ public abstract class JobField {
         if (this == o) return true;
         if (!(o instanceof JobField)) return false;
         JobField jobField = (JobField) o;
-        return getId() == jobField.getId();
+        return id == jobField.id;
     }
 
     @Override
@@ -48,5 +48,4 @@ public abstract class JobField {
     }
 
 }
-
 
